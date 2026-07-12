@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+    <rect width="1200" height="800" fill="#f7fbff"/>
+    <rect x="30" y="30" width="1140" height="740" rx="30" fill="white" stroke="#b8d7ea" stroke-width="4"/>
+    <text x="60" y="95" font-size="42" font-family="sans-serif" font-weight="700" fill="#0b315f">配管穴：OK例と注意例</text>
+    
+<text x="110" y="165" font-size="34" font-family="sans-serif" font-weight="700" fill="#2c7a45">OK例</text>
+<rect x="80" y="190" width="470" height="360" rx="24" fill="#eef9f1" stroke="#6dbb83" stroke-width="4"/>
+<rect x="130" y="235" width="170" height="80" rx="16" fill="#fff" stroke="#5d8fb2" stroke-width="4"/>
+<text x="215" y="285" text-anchor="middle" font-size="25" font-family="sans-serif" fill="#0b315f">室内機</text>
+<circle cx="380" cy="360" r="52" fill="#fff" stroke="#3d7a9f" stroke-width="5"/>
+<path d="M300 315 C330 330 340 360 328 410" fill="none" stroke="#176fd0" stroke-width="14"/>
+<text x="315" y="475" font-size="24" font-family="sans-serif" fill="#2c7a45">勾配を取って屋外へ</text>
+<text x="665" y="165" font-size="34" font-family="sans-serif" font-weight="700" fill="#b43c3c">注意例</text>
+<rect x="630" y="190" width="470" height="360" rx="24" fill="#fff2f2" stroke="#d47777" stroke-width="4"/>
+<rect x="680" y="235" width="170" height="80" rx="16" fill="#fff" stroke="#5d8fb2" stroke-width="4"/>
+<text x="765" y="285" text-anchor="middle" font-size="25" font-family="sans-serif" fill="#0b315f">室内機</text>
+<circle cx="940" cy="360" r="52" fill="#fff" stroke="#b65050" stroke-width="5"/>
+<path d="M850 390 C890 350 910 335 925 330" fill="none" stroke="#cc4b4b" stroke-width="14"/>
+<text x="730" y="475" font-size="24" font-family="sans-serif" fill="#b43c3c">逆勾配・梁・筋交いに注意</text>
+<text x="120" y="640" font-size="28" font-family="sans-serif" fill="#223">確認：壁材／穴の有無／スリーブ／ドレン勾配／隠ぺい配管</text>
+
+    <text x="60" y="745" font-size="24" font-family="sans-serif" fill="#5a6d7d">※最終判断は現地確認・施工担当者・施工説明書で確認</text>
+    </svg>

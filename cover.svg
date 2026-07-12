@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+    <rect width="1200" height="800" fill="#f7fbff"/>
+    <rect x="30" y="30" width="1140" height="740" rx="30" fill="white" stroke="#b8d7ea" stroke-width="4"/>
+    <text x="60" y="95" font-size="42" font-family="sans-serif" font-weight="700" fill="#0b315f">化粧カバー：室内と室外</text>
+    
+<rect x="90" y="160" width="470" height="430" rx="24" fill="#eef6fb" stroke="#6eaad0" stroke-width="4"/>
+<text x="325" y="215" text-anchor="middle" font-size="32" font-family="sans-serif" font-weight="700" fill="#0b315f">室内カバー</text>
+<rect x="150" y="250" width="190" height="75" rx="14" fill="#fff" stroke="#4f84a5" stroke-width="4"/>
+<text x="245" y="297" text-anchor="middle" font-size="24" font-family="sans-serif" fill="#0b315f">室内機</text>
+<path d="M340 286 L450 286 L450 470" fill="none" stroke="#d7d7d7" stroke-width="34"/>
+<path d="M340 286 L450 286 L450 470" fill="none" stroke="#8f8f8f" stroke-width="4"/>
+<text x="180" y="525" font-size="24" font-family="sans-serif" fill="#223">見た目をすっきり</text>
+<rect x="640" y="160" width="470" height="430" rx="24" fill="#f4f8ec" stroke="#92b86a" stroke-width="4"/>
+<text x="875" y="215" text-anchor="middle" font-size="32" font-family="sans-serif" font-weight="700" fill="#0b315f">室外カバー</text>
+<rect x="720" y="400" width="230" height="135" rx="18" fill="#fff" stroke="#5b7b90" stroke-width="4"/>
+<text x="835" y="475" text-anchor="middle" font-size="24" font-family="sans-serif" fill="#0b315f">室外機</text>
+<path d="M760 260 L760 400" fill="none" stroke="#d7d7d7" stroke-width="36"/>
+<path d="M760 260 L760 400" fill="none" stroke="#8f8f8f" stroke-width="4"/>
+<text x="700" y="575" font-size="24" font-family="sans-serif" fill="#223">紫外線・雨風から配管を保護</text>
+<text x="90" y="650" font-size="28" font-family="sans-serif" fill="#223">確認：色／長さ／曲がり／既存カバー再利用可否／追加部材</text>
+
+    <text x="60" y="745" font-size="24" font-family="sans-serif" fill="#5a6d7d">※最終判断は現地確認・施工担当者・施工説明書で確認</text>
+    </svg>

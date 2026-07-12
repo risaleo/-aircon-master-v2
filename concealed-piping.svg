@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+    <rect width="1200" height="800" fill="#f7fbff"/>
+    <rect x="30" y="30" width="1140" height="740" rx="30" fill="white" stroke="#b8d7ea" stroke-width="4"/>
+    <text x="60" y="95" font-size="42" font-family="sans-serif" font-weight="700" fill="#0b315f">隠ぺい配管とは</text>
+    
+<rect x="80" y="160" width="470" height="420" rx="24" fill="#eef6fb" stroke="#6eaad0" stroke-width="4"/>
+<text x="315" y="215" text-anchor="middle" font-size="32" font-family="sans-serif" font-weight="700" fill="#0b315f">通常配管</text>
+<rect x="130" y="250" width="170" height="70" rx="14" fill="#fff" stroke="#5d8fb2" stroke-width="4"/>
+<text x="215" y="295" text-anchor="middle" font-size="23" font-family="sans-serif" fill="#0b315f">室内機</text>
+<path d="M300 285 L440 285 L440 450" fill="none" stroke="#176fd0" stroke-width="12"/>
+<text x="165" y="520" font-size="24" font-family="sans-serif" fill="#223">配管が見える</text>
+<rect x="650" y="160" width="470" height="420" rx="24" fill="#f4f8ec" stroke="#92b86a" stroke-width="4"/>
+<text x="885" y="215" text-anchor="middle" font-size="32" font-family="sans-serif" font-weight="700" fill="#0b315f">隠ぺい配管</text>
+<rect x="700" y="250" width="170" height="70" rx="14" fill="#fff" stroke="#5d8fb2" stroke-width="4"/>
+<text x="785" y="295" text-anchor="middle" font-size="23" font-family="sans-serif" fill="#0b315f">室内機</text>
+<rect x="890" y="230" width="90" height="250" fill="#ddd" stroke="#999" stroke-width="3"/>
+<path d="M870 285 L935 285 L935 450" fill="none" stroke="#176fd0" stroke-width="12" stroke-dasharray="16 10"/>
+<text x="745" y="520" font-size="24" font-family="sans-serif" fill="#223">配管が壁・天井内</text>
+<text x="110" y="650" font-size="27" font-family="sans-serif" fill="#223">確認：配管径／電線／ドレン／劣化／再利用可否／メーカー対応可否</text>
+
+    <text x="60" y="745" font-size="24" font-family="sans-serif" fill="#5a6d7d">※最終判断は現地確認・施工担当者・施工説明書で確認</text>
+    </svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+    <rect width="1200" height="800" fill="#f7fbff"/>
+    <rect x="30" y="30" width="1140" height="740" rx="30" fill="white" stroke="#b8d7ea" stroke-width="4"/>
+    <text x="60" y="95" font-size="42" font-family="sans-serif" font-weight="700" fill="#0b315f">室外機の設置チェック</text>
+    
+<rect x="110" y="190" width="520" height="350" rx="24" fill="#eef6fb" stroke="#6eaad0" stroke-width="4"/>
+<rect x="260" y="310" width="260" height="160" rx="20" fill="#fff" stroke="#557b95" stroke-width="5"/>
+<circle cx="350" cy="390" r="50" fill="none" stroke="#557b95" stroke-width="5"/>
+<line x1="350" y1="340" x2="350" y2="440" stroke="#557b95" stroke-width="5"/>
+<line x1="300" y1="390" x2="400" y2="390" stroke="#557b95" stroke-width="5"/>
+<text x="390" y="500" text-anchor="middle" font-size="24" font-family="sans-serif" fill="#0b315f">室外機</text>
+<line x1="190" y1="270" x2="260" y2="270" stroke="#176fd0" stroke-width="7"/>
+<line x1="520" y1="270" x2="600" y2="270" stroke="#176fd0" stroke-width="7"/>
+<line x1="650" y1="390" x2="780" y2="390" stroke="#176fd0" stroke-width="9" marker-end="url(#b)"/>
+<defs><marker id="b" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#176fd0"/></marker></defs>
+<text x="820" y="250" font-size="30" font-family="sans-serif" font-weight="700" fill="#0b315f">確認</text>
+<text x="820" y="310" font-size="27" font-family="sans-serif" fill="#223">・前方の吹出し</text>
+<text x="820" y="360" font-size="27" font-family="sans-serif" fill="#223">・背面／側面の吸込み</text>
+<text x="820" y="410" font-size="27" font-family="sans-serif" fill="#223">・水平で安定した場所</text>
+<text x="820" y="460" font-size="27" font-family="sans-serif" fill="#223">・排水／振動／騒音</text>
+<rect x="760" y="525" width="340" height="95" rx="18" fill="#fff6da" stroke="#e7bd4d" stroke-width="3"/>
+<text x="930" y="565" text-anchor="middle" font-size="23" font-family="sans-serif" fill="#694f00">必要寸法は機種ごとの</text>
+<text x="930" y="597" text-anchor="middle" font-size="23" font-family="sans-serif" fill="#694f00">施工説明書で確認</text>
+
+    <text x="60" y="745" font-size="24" font-family="sans-serif" fill="#5a6d7d">※最終判断は現地確認・施工担当者・施工説明書で確認</text>
+    </svg>
