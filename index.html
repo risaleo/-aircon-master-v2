@@ -4,101 +4,129 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター V2</title>
+<title>エアコン販買マスター V2.4</title>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" href="favicon-32.png">
-<link rel="stylesheet" href="styles.css?v=201">
+<link rel="stylesheet" href="styles.css?v=204">
 </head>
 <body>
 <div class="app">
-  <section id="homePage" class="page">
-    <header class="topbar">
-      <button class="icon-button" type="button" aria-label="メニュー">☰</button>
-      <div class="brand">❄ エアコン販買マスター <small>V2</small></div>
-      <button class="icon-button" type="button" aria-label="通知">♧</button>
-    </header>
+<main>
+<section id="homePage" class="page">
+  <header class="topbar">
+    <button class="icon-button" type="button" id="settingsButton">☰</button>
+    <div class="brand">❄ エアコン販買マスター <small>V2.4</small></div>
+    <button class="icon-button" type="button" id="missionHeaderButton">◎</button>
+  </header>
 
-    <section class="hero">
-      <div>
-        <div class="eyebrow">今日の学習状況</div>
-        <div class="level-line"><strong id="levelText">Lv.1</strong><b>新人スタッフ</b></div>
-        <div class="progress"><span id="expBar"></span></div>
-        <p id="expText">次のレベルまで あと100EXP</p>
-        <div class="tip">💡 今日のポイント<br><span>困りごとを先に聞くと、提案がしやすくなります。</span></div>
-      </div>
-      <div class="hero-image"><img src="hero-aircon.jpg" alt="エアコン"></div>
-    </section>
+  <section class="hero">
+    <div>
+      <div class="eyebrow" id="helloText">今日の学習状況</div>
+      <div class="level-line"><strong id="levelText">Lv.1</strong><b id="rankText">新人スタッフ</b></div>
+      <div class="progress"><span id="expBar"></span></div>
+      <p id="expText">次のレベルまで あと100EXP</p>
+      <div class="tip">💡 今日のポイント<br><span>困りごとを先に聞き、工事条件を早めに確認しましょう。</span></div>
+    </div>
+    <div class="hero-image"><img src="hero-aircon.jpg" alt="エアコン"></div>
+  </section>
 
-    <button class="main-banner" type="button" disabled>
-      <span class="round-icon">👥</span>
-      <span><b>販買モード</b><small>次の段階で追加します</small></span>
-      <span>›</span>
+  <button class="main-banner" type="button" id="salesModeButton">
+    <span class="round-icon">👥</span>
+    <span><b>販買モード</b><small>実際の接客をシミュレーション</small></span>
+    <span>›</span>
+  </button>
+
+  <div class="menu-grid">
+    <button class="menu-card" type="button" data-open-category="practice">
+      <span class="menu-icon">📖</span><b>練習問題</b><small>初級・中級・上級・ランダム</small>
     </button>
-
-    <div class="menu-grid">
-      <button class="menu-card" type="button" data-open-category="practice">
-        <span class="menu-icon">📖</span><b>練習問題</b><small>初級・中級・上級・ランダム</small>
-      </button>
-      <button class="menu-card" type="button" data-open-category="price">
-        <span class="menu-icon orange">🧮</span><b>工事料金</b><small>ランク別の工事料金問題</small>
-      </button>
-      <button class="menu-card" type="button" id="historyButton">
-        <span class="menu-icon purple">📊</span><b>学習記録</b><small>回答数と正答率を確認</small>
-      </button>
-    </div>
-
-    <button class="mission" type="button" disabled>
-      <span>◎</span><span><b>今日のミッション</b><small>ランク別問題を10問解く</small></span><strong id="missionCount">0 / 10</strong>
+    <button class="menu-card" type="button" data-open-category="price">
+      <span class="menu-icon orange">🧮</span><b>工事料金</b><small>工事知識をランク別に学習</small>
     </button>
-  </section>
+    <button class="menu-card" type="button" id="historyButton">
+      <span class="menu-icon purple">📊</span><b>学習記録</b><small>回答数・正答率・実績</small>
+    </button>
+  </div>
 
-  <section id="rankPage" class="page hidden">
-    <header class="subheader">
-      <button type="button" data-back-home>‹</button>
-      <h1 id="rankTitle">練習問題</h1>
-      <span></span>
-    </header>
-    <div class="rank-content">
-      <p>挑戦するランクを選んでください。</p>
-      <div class="rank-grid">
-        <button type="button" class="rank-button beginner" data-rank="初級"><span>🟢</span><b>初級</b><small id="beginnerCount"></small></button>
-        <button type="button" class="rank-button middle" data-rank="中級"><span>🔵</span><b>中級</b><small id="middleCount"></small></button>
-        <button type="button" class="rank-button advanced" data-rank="上級"><span>🔴</span><b>上級</b><small id="advancedCount"></small></button>
-        <button type="button" class="rank-button random" data-rank="ランダム"><span>🟣</span><b>ランダム</b><small id="randomCount"></small></button>
+  <button class="mission" type="button" id="missionButton">
+    <span>◎</span><span><b>今日のミッション</b><small>販買モードを3件実施する</small></span>
+    <strong id="missionCount">0 / 3</strong>
+  </button>
+</section>
+
+<section id="rankPage" class="page hidden">
+  <header class="subheader"><button type="button" data-back-home>‹</button><h1 id="rankTitle">ランク選択</h1><span></span></header>
+  <div class="rank-content">
+    <p>挑戦するランクを選んでください。</p>
+    <div class="rank-grid">
+      <button type="button" class="rank-button beginner" data-rank="初級"><span>🟢</span><b>初級</b><small id="beginnerCount"></small></button>
+      <button type="button" class="rank-button middle" data-rank="中級"><span>🔵</span><b>中級</b><small id="middleCount"></small></button>
+      <button type="button" class="rank-button advanced" data-rank="上級"><span>🔴</span><b>上級</b><small id="advancedCount"></small></button>
+      <button type="button" class="rank-button random" data-rank="ランダム"><span>🟣</span><b>ランダム</b><small id="randomCount"></small></button>
+    </div>
+  </div>
+</section>
+
+<section id="quizPage" class="page hidden">
+  <header class="subheader"><button type="button" id="quizBack">‹</button><h1 id="quizTitle">練習問題</h1><button type="button" id="quitQuiz">終了</button></header>
+  <div class="quiz-content">
+    <div class="quiz-meta"><span id="rankBadge">初級</span><b id="quizProgress">1 / 10</b></div>
+    <div id="questionText" class="question-card"></div>
+    <div id="choiceList" class="choice-list"></div>
+    <div id="answerResult" class="answer-result hidden"></div>
+    <button id="nextButton" class="next-button hidden" type="button">次の問題</button>
+  </div>
+</section>
+
+<section id="salesPage" class="page hidden">
+  <header class="subheader"><button type="button" id="salesBack">‹</button><h1>販買モード</h1><button type="button" id="salesQuit">終了</button></header>
+  <div class="sales-content">
+    <div class="sales-stepper" id="salesStepper"></div>
+    <div class="sales-layout">
+      <div class="sales-customer-card" id="salesCustomerCard"></div>
+      <div class="sales-question-card">
+        <h2 id="salesQuestion"></h2>
+        <div id="salesChoices" class="choice-list"></div>
+        <div id="salesFeedback" class="answer-result hidden"></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="quizPage" class="page hidden">
-    <header class="subheader">
-      <button type="button" id="quizBack">‹</button>
-      <h1 id="quizTitle">練習問題・初級</h1>
-      <button type="button" id="quitQuiz">終了</button>
-    </header>
-    <div class="quiz-content">
-      <div class="quiz-meta"><span id="rankBadge">初級</span><b id="quizProgress">1 / 10</b></div>
-      <div id="questionText" class="question-card"></div>
-      <div id="choiceList" class="choice-list"></div>
-      <div id="answerResult" class="answer-result hidden"></div>
-      <button id="nextButton" class="next-button hidden" type="button">次の問題</button>
-    </div>
-  </section>
+<section id="missionPage" class="page hidden">
+  <header class="subheader"><button type="button" data-back-home>‹</button><h1>今日のミッション</h1><span></span></header>
+  <div class="result-content">
+    <div class="result-card"><span>今日の目標</span><strong id="missionDetailCount">0 / 3</strong><p>販買モードを3件実施する</p></div>
+    <div class="progress mission-progress"><span id="missionDetailBar"></span></div>
+    <button class="next-button" type="button" id="missionStartButton">販買モードを始める</button>
+  </div>
+</section>
 
-  <section id="resultPage" class="page hidden">
-    <header class="subheader"><button type="button" data-back-home>‹</button><h1>結果</h1><span></span></header>
-    <div class="result-content">
-      <div class="result-card"><span>今回の成績</span><strong id="resultScore">0 / 10</strong><p id="resultMessage"></p></div>
-      <button class="next-button" type="button" data-back-home>ホームへ戻る</button>
-    </div>
-  </section>
+<section id="resultPage" class="page hidden">
+  <header class="subheader"><button type="button" data-back-home>‹</button><h1>結果</h1><span></span></header>
+  <div class="result-content">
+    <div class="result-card"><span>今回の成績</span><strong id="resultScore">0 / 10</strong><p id="resultMessage"></p></div>
+    <button class="next-button" type="button" data-back-home>ホームへ戻る</button>
+  </div>
+</section>
 
-  <section id="historyPage" class="page hidden">
-    <header class="subheader"><button type="button" data-back-home>‹</button><h1>学習記録</h1><span></span></header>
-    <div class="history-content" id="historyContent"></div>
-  </section>
+<section id="historyPage" class="page hidden">
+  <header class="subheader"><button type="button" data-back-home>‹</button><h1>学習記録</h1><span></span></header>
+  <div class="history-content" id="historyContent"></div>
+</section>
+
+<section id="settingsPage" class="page hidden">
+  <header class="subheader"><button type="button" data-back-home>‹</button><h1>設定</h1><span></span></header>
+  <div class="settings-content">
+    <label for="nameInput">使う人の名前</label>
+    <div class="settings-row"><input id="nameInput" maxlength="20" placeholder="例：リサ"><button type="button" id="saveNameButton">保存</button></div>
+    <p>名前と学習記録はこの端末内に保存されます。</p>
+  </div>
+</section>
+</main>
 </div>
-<script src="data.js?v=201"></script>
-<script src="app.js?v=201"></script>
+<script src="data.js?v=204"></script>
+<script src="app.js?v=204"></script>
 </body>
 </html>
