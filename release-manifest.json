@@ -1,0 +1,62 @@
+{
+  "name": "エアコン販買マスター Pro",
+  "version": "1.0.0",
+  "files": {
+    "README_アップロード手順.txt": {
+      "size": 941,
+      "sha256": "85c0cf5b8a10c64273385bb97bfe0d29ae0811d3ed392595530ca0a994aa3ee4"
+    },
+    "concealed-piping.svg": {
+      "size": 2144,
+      "sha256": "4b6640354699f67d07efa339c1cfc0d9f927218c7d5c4e75d9f83d90b4e6eeb9"
+    },
+    "cover.svg": {
+      "size": 2204,
+      "sha256": "e5d8cbf54b3b02b389555cb5a1681c5479aed8b8cea92eebeb83b6d527f06fe7"
+    },
+    "dedicated-circuit.png": {
+      "size": 351151,
+      "sha256": "48439dc89a2f875c74c4741086e1aed091c4ea931136993f0a93e72d582c7de7"
+    },
+    "distribution-board.svg": {
+      "size": 2774,
+      "sha256": "32047a5f5505d74bae8faaac78642155ffc390435e6b89f2a314eba0bd4184e7"
+    },
+    "index.html": {
+      "size": 189814,
+      "sha256": "b2c1a454c56ecbe312f31bc92c3fe3fe89b5c8391629074b4c6e20a984dfae45"
+    },
+    "no-direct-airflow.png": {
+      "size": 418023,
+      "sha256": "bbe709c114504c33365cd59bed6421d37b2f253531254b85d499dddb4c0d34cc"
+    },
+    "premium-cooling.png": {
+      "size": 437589,
+      "sha256": "4644db62837063c146badc43381f7de3928100350e4348f47ef21e83776996bf"
+    },
+    "rafe-comparison.svg": {
+      "size": 6377,
+      "sha256": "b5e3a5ec27a7342b07c54880469b4d07e36d851e8db9b6796ed443b380c36ddd"
+    },
+    "room-patrol.png": {
+      "size": 213777,
+      "sha256": "80badfa9489687a898bc6d99832297866cf6c26c31b6f6564d7e8fd3716adea8"
+    },
+    "sarara-dehumidify.png": {
+      "size": 226978,
+      "sha256": "4b837b37298eaf7302cb0094931efa1d00d4a069c44f10e226f2ad700c889be0"
+    },
+    "streamer.png": {
+      "size": 203425,
+      "sha256": "822e0cb0b4be35de7d6773585074886a0c687ceb6f11f424dabd24c02510260e"
+    },
+    "swing-compressor.png": {
+      "size": 272395,
+      "sha256": "aed0975ecc0c8bd13a0fdb20458bc30f98fc45e290aa0242b112a7827133b07d"
+    },
+    "voltage-100-200.png": {
+      "size": 361754,
+      "sha256": "c51a4b255abbd0dd7402aad99871268b815787c5eb0b3cc606eeb751f17b9d1d"
+    }
+  }
+}
