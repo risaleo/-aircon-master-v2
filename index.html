@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro 正式版 2.1.5</title>
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2150">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2150">
+<title>エアコン販買マスター Pro 正式版 2.2.0</title>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2200">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2200">
 <style>
 :root{--navy:#0b315f;--blue:#116fe8;--text:#14324f;--muted:#718497;--line:#dbe6ef}
 *{box-sizing:border-box}
@@ -250,6 +250,29 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
   font-weight:400;
 }
 
+
+.sales-tips-content{max-width:980px;margin:0 auto;padding:24px}
+.sales-tip-hero{display:grid;grid-template-columns:76px 1fr;gap:18px;align-items:center;padding:22px;border-radius:22px;background:linear-gradient(135deg,#fff9e8,#fffdf7);border:1px solid #ead8a0}
+.sales-tip-hero-icon{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;background:#ffcc3d;font-size:36px}
+.sales-tip-hero h2{margin:0 0 7px;color:#4e3a00;font-size:28px}
+.sales-tip-hero p{margin:0;color:#6b5b31;line-height:1.7}
+.sales-tip-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+.sales-tip-card{padding:20px;border-radius:18px;background:#fff;border:1px solid #e4e8ec;box-shadow:0 7px 20px rgba(40,70,90,.05)}
+.sales-tip-card span{font-size:38px}
+.sales-tip-card h3{margin:9px 0 6px;color:#173d65}
+.sales-tip-card p{margin:0;line-height:1.65;color:#536d81}
+.sales-tip-note{margin-top:18px;padding:18px 20px;border-radius:18px;background:#eef7ff;border:1px solid #c6def1;color:#31566f}
+.sales-tip-note b{display:block;margin-bottom:6px;color:#0b4b9d}
+.sales-tip-note p{margin:0;line-height:1.65}
+@media(max-width:767px){
+ .sales-tips-content{padding:16px 14px}
+ .sales-tip-hero{grid-template-columns:56px 1fr;padding:16px}
+ .sales-tip-hero-icon{width:54px;height:54px;font-size:29px}
+ .sales-tip-hero h2{font-size:21px}
+ .sales-tip-grid{grid-template-columns:1fr;gap:10px}
+ .sales-tip-card{padding:16px}
+}
+
 @media(max-width:767px){
  .help-page-content{padding:16px 14px}
  .help-hero{grid-template-columns:58px 1fr;padding:16px}
@@ -329,7 +352,7 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
 @media(max-width:767px){.app{padding:0}.page{min-height:100vh;border-radius:0}.topbar,.subheader{height:72px;padding:0 15px}.brand{font-size:20px}.hero{margin:12px 14px;padding:20px;grid-template-columns:1fr}.hero-image{display:none}.main-banner{width:calc(100% - 28px);margin:0 14px 12px;padding:18px}.menu-grid{padding:0 14px;grid-template-columns:1fr 1fr;gap:9px}.menu-card{min-height:165px;padding:13px}.menu-card:last-child{grid-column:1/-1}.mission{width:calc(100% - 28px);margin:12px 14px}.rank-content,.quiz-content,.result-content,.history-content,.settings-content,.sales-content{padding:20px 15px}.rank-grid{gap:10px}.rank-button{min-height:135px;padding:15px}.choice-list,.sales-layout{grid-template-columns:1fr}.question-card{font-size:20px}.history-summary{grid-template-columns:1fr 1fr}}
 @media(min-width:768px) and (max-width:1366px){.app{max-width:none;width:100%;padding:20px}.page{max-width:1160px;margin:auto}.sales-layout{grid-template-columns:.75fr 1.25fr}}
 </style>
-<link rel="manifest" href="manifest.webmanifest?v=2150">
+<link rel="manifest" href="manifest.webmanifest?v=2200">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="エアコン販買マスター">
@@ -343,7 +366,7 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>正式版 2.1.5</small>
+      <small>正式版 2.2.0</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -456,7 +479,7 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
     <button onclick="show('home')" class="active"><span>⌂</span><b>ホーム</b></button>
     <button onclick="openRank('practice')"><span>●</span><b>練習</b></button>
     <button onclick="show('helpPage')"><span>?</span><b>使い方</b></button>
-    <button onclick="openSettings()"><span>ⓘ</span><b>情報</b></button>
+    <button onclick="show('salesTips')"><span>💡</span><b>販売のコツ</b></button>
   </nav>
 </section>
 
@@ -707,6 +730,33 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
       <h3>更新後の確認</h3>
       <p>表示が古い場合は、アプリを一度閉じてSafariで公開URLを再読み込みしてください。</p>
     </section>
+  </main>
+</section>
+
+
+<section id="salesTips" class="page hidden">
+  <header class="subheader">
+    <button onclick="show('home')" aria-label="戻る">‹</button>
+    <h1>販売のコツ</h1>
+    <span></span>
+  </header>
+  <main class="sales-tips-content">
+    <section class="sales-tip-hero">
+      <div class="sales-tip-hero-icon">💡</div>
+      <div>
+        <h2>接客で使えるワンポイント</h2>
+        <p>説明しすぎず、お客様の困りごとに合わせて提案しましょう。</p>
+      </div>
+    </section>
+    <section class="sales-tip-grid">
+      <article class="sales-tip-card"><span>👂</span><h3>最初は聞く</h3><p>いきなり商品説明をせず、「今お困りのことは何ですか？」から始めます。</p></article>
+      <article class="sales-tip-card"><span>🎯</span><h3>比較は絞る</h3><p>候補を増やしすぎず、違いが伝わる2〜3機種に絞って案内します。</p></article>
+      <article class="sales-tip-card"><span>🗣️</span><h3>機能より効果</h3><p>機能名だけでなく、「お客様にどんな良さがあるか」に言い換えます。</p></article>
+      <article class="sales-tip-card"><span>🛡️</span><h3>安心を伝える</h3><p>価格だけでなく、工事・サポート・お手入れまで含めて安心材料を伝えます。</p></article>
+      <article class="sales-tip-card"><span>❓</span><h3>確認してから答える</h3><p>不確かな内容は断定せず、最新カタログや社内資料を確認して案内します。</p></article>
+      <article class="sales-tip-card"><span>✅</span><h3>最後に要点確認</h3><p>畳数・電圧・工事条件・希望日など、大切な条件を一緒に確認します。</p></article>
+    </section>
+    <section class="sales-tip-note"><b>今日の一言</b><p>「高い・安い」ではなく、「何が違って、誰に合うか」を伝えましょう。</p></section>
   </main>
 </section>
 
