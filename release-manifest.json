@@ -1,10 +1,15 @@
 {
   "name": "エアコン販買マスター Pro",
-  "version": "1.0.0",
+  "version": "1.1.0",
+  "construction_check": false,
   "files": {
     "README_アップロード手順.txt": {
       "size": 941,
       "sha256": "85c0cf5b8a10c64273385bb97bfe0d29ae0811d3ed392595530ca0a994aa3ee4"
+    },
+    "README_配布と更新手順.txt": {
+      "size": 1156,
+      "sha256": "bbd152ae66fbbb8861bc1bad9a3ad4ca3a0552f37574dfcc4865bfb466af21ee"
     },
     "concealed-piping.svg": {
       "size": 2144,
@@ -23,8 +28,8 @@
       "sha256": "32047a5f5505d74bae8faaac78642155ffc390435e6b89f2a314eba0bd4184e7"
     },
     "index.html": {
-      "size": 189814,
-      "sha256": "b2c1a454c56ecbe312f31bc92c3fe3fe89b5c8391629074b4c6e20a984dfae45"
+      "size": 188854,
+      "sha256": "96bfc61d1f6dbde973308a3aefbd4f726cc59613d5349cd6a5dfc5e240fc2f87"
     },
     "no-direct-airflow.png": {
       "size": 418023,
@@ -37,6 +42,10 @@
     "rafe-comparison.svg": {
       "size": 6377,
       "sha256": "b5e3a5ec27a7342b07c54880469b4d07e36d851e8db9b6796ed443b380c36ddd"
+    },
+    "release-manifest.json": {
+      "size": 2049,
+      "sha256": "3f2f924dbf9314fe2e4d0d3797dfd9075ee8cafe1e1670ead919efa416604bb9"
     },
     "room-patrol.png": {
       "size": 213777,
