@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<rect width="1200" height="800" fill="#f6fbff"/>
+<rect x="30" y="30" width="1140" height="740" rx="30" fill="#fff" stroke="#b9d9ec" stroke-width="4"/>
+<text x="600" y="100" text-anchor="middle" font-size="46" font-family="sans-serif" font-weight="700" fill="#0b315f">さらら除湿</text>
+<text x="600" y="145" text-anchor="middle" font-size="24" font-family="sans-serif" fill="#536d81">シリーズによって除湿方式が異なります</text>
+<rect x="80" y="200" width="490" height="390" rx="28" fill="#edf7ff" stroke="#58a5db" stroke-width="4"/>
+<text x="325" y="265" text-anchor="middle" font-size="37" font-family="sans-serif" font-weight="700" fill="#1267a9">R・Aシリーズ</text>
+<text x="325" y="320" text-anchor="middle" font-size="31" font-family="sans-serif" font-weight="700" fill="#0b315f">リニアハイブリッド方式</text>
+<text x="125" y="390" font-size="25" font-family="sans-serif" fill="#223">・加熱リニアコントロール</text>
+<text x="125" y="440" font-size="25" font-family="sans-serif" fill="#223">・季節やシーンに合わせて除湿</text>
+<text x="125" y="490" font-size="25" font-family="sans-serif" fill="#223">・対象能力帯は型番で確認</text>
+<rect x="630" y="200" width="490" height="390" rx="28" fill="#eef9f2" stroke="#65ad7d" stroke-width="4"/>
+<text x="875" y="265" text-anchor="middle" font-size="37" font-family="sans-serif" font-weight="700" fill="#2f8a55">Fシリーズ</text>
+<text x="875" y="320" text-anchor="middle" font-size="31" font-family="sans-serif" font-weight="700" fill="#0b315f">ハイブリッド方式</text>
+<text x="675" y="390" font-size="25" font-family="sans-serif" fill="#223">・さらら除湿を搭載</text>
+<text x="675" y="440" font-size="25" font-family="sans-serif" fill="#223">・リニアハイブリッド方式とは異なる</text>
+<text x="675" y="490" font-size="25" font-family="sans-serif" fill="#223">・搭載内容は型番で確認</text>
+<rect x="115" y="625" width="970" height="82" rx="20" fill="#fff4d9" stroke="#dfbd5b" stroke-width="3"/>
+<text x="600" y="660" text-anchor="middle" font-size="23" font-family="sans-serif" fill="#684f00">ダイキンのさらら除湿は、一般社団法人 日本冷凍空調工業会による</text>
+<text x="600" y="693" text-anchor="middle" font-size="23" font-family="sans-serif" fill="#684f00">再熱除湿方式ではありません。能力帯・型番ごとの注記まで確認しましょう。</text>
+</svg>
