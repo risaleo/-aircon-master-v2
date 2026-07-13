@@ -1,7 +1,7 @@
 {
   "name": "エアコン販買マスター Pro",
   "short_name": "エアコンマスター",
-  "start_url": "./?v=1110",
+  "start_url": "./?v=2000",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#116fe8",
