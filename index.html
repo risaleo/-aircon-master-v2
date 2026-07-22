@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.3.8.1 全問題再精査版</title>
+<title>エアコン販買マスター Pro Ver.3.8.2 iPad動作修正版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3500">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3500">
 <style>
@@ -374,7 +374,7 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.3.8.1 全問題再精査版</small>
+      <small>Ver.3.8.2 iPad動作修正版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -842,18 +842,45 @@ let salesCase=null,salesIndex=0,salesScore=0;
 
 function show(id){document.querySelectorAll(".page").forEach(p=>p.classList.add("hidden"));document.getElementById(id).classList.remove("hidden");window.scrollTo(0,0);if(id==="home")updateHome()}
 function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
-function stats(){try{return JSON.parse(localStorage.getItem(STORE)||'{"answered":0,"correct":0,"sales":0,"sessions":[]}')}catch{return{answered:0,correct:0,sales:0,sessions:[]}}}
-function saveStats(s){localStorage.setItem(STORE,JSON.stringify(s))}
+function safeNonNegativeNumber(value,fallback=0){
+ const n=Number(value);
+ return Number.isFinite(n)&&n>=0?n:fallback;
+}
+function stats(){
+ let raw={};
+ try{raw=JSON.parse(localStorage.getItem(STORE)||"{}")}catch(e){raw={}}
+ const clean={
+  answered:safeNonNegativeNumber(raw.answered),
+  correct:safeNonNegativeNumber(raw.correct),
+  sales:safeNonNegativeNumber(raw.sales),
+  sessions:Array.isArray(raw.sessions)?raw.sessions:[]
+ };
+ // 壊れた保存値（NaN・null・文字列など）を自動修復する。
+ if(clean.correct>clean.answered)clean.answered=clean.correct;
+ localStorage.setItem(STORE,JSON.stringify(clean));
+ return clean;
+}
+function saveStats(s){
+ const clean={
+  answered:safeNonNegativeNumber(s&&s.answered),
+  correct:safeNonNegativeNumber(s&&s.correct),
+  sales:safeNonNegativeNumber(s&&s.sales),
+  sessions:Array.isArray(s&&s.sessions)?s.sessions:[]
+ };
+ if(clean.correct>clean.answered)clean.answered=clean.correct;
+ localStorage.setItem(STORE,JSON.stringify(clean));
+}
 function lifetimeExp(){
  const n=Number(localStorage.getItem(LIFETIME_EXP_KEY)||0);
- return Number.isFinite(n)&&n>0?n:0;
+ if(!Number.isFinite(n)||n<0){localStorage.setItem(LIFETIME_EXP_KEY,"0");return 0}
+ return n;
 }
 function awardExp(amount){
  const next=lifetimeExp()+Math.max(0,Number(amount)||0);
  localStorage.setItem(LIFETIME_EXP_KEY,String(next));
  return next;
 }
-function missionKey(){return "aircon_v2130_mission_"+localDateKey()}
+function missionKey(){return"aircon_v2130_mission_"+new Date().toISOString().slice(0,10)}
 function dailyMission(){
  const day=new Date().getDate()%3;
  if(day===0)return{type:"sales",goal:3,title:"販買モードを3件実施する"};
@@ -910,8 +937,9 @@ function syncDailyExp(totalExp){
 
 function updateHome(){
  const s=stats();
- const exp=Math.max(s.correct*20+s.sales*30,lifetimeExp());
- const lv=Math.floor(exp/100)+1;
+ const calculatedExp=safeNonNegativeNumber(s.correct)*20+safeNonNegativeNumber(s.sales)*30;
+ const exp=Math.max(safeNonNegativeNumber(calculatedExp),safeNonNegativeNumber(lifetimeExp()));
+ const lv=Math.max(1,Math.floor(exp/100)+1);
  const within=exp%100;
  const todayExp=syncDailyExp(exp);
  const todayProgress=Math.min(todayExp,100);
@@ -965,11 +993,40 @@ function updateHome(){
 }
 function openRank(type){category=type;const list=DATA[type],c={初級:0,中級:0,上級:0};list.forEach(q=>c[q.level]++);document.getElementById("rankTitle").textContent=(type==="price"?"工事料金":"練習問題")+"・ランク選択";document.getElementById("beginnerCount").textContent=c.初級+"問";document.getElementById("middleCount").textContent=c.中級+"問";document.getElementById("advancedCount").textContent=c.上級+"問";document.getElementById("randomCount").textContent=list.length+"問";show("rank")}
 function startQuiz(r){rank=r;const src=DATA[category],sel=r==="ランダム"?src:src.filter(q=>q.level===r);pool=shuffle(sel).slice(0,10);qIndex=0;qScore=0;document.getElementById("quizTitle").textContent=(category==="price"?"工事料金":"練習問題")+"・"+r;show("quiz");renderQuestion()}
-function renderQuestion(){if(qIndex>=pool.length)return finishQuiz();current=pool[qIndex];answered=false;document.getElementById("rankBadge").textContent=rank==="ランダム"?"ランダム／"+current.level:current.level;document.getElementById("quizProgress").textContent=(qIndex+1)+" / "+pool.length;document.getElementById("questionText").textContent=current.q;document.getElementById("answerResult").classList.add("hidden");document.getElementById("nextButton").classList.add("hidden");const box=document.getElementById("choiceList");box.innerHTML="";shuffle(current.choices.map((text,index)=>({text,index}))).forEach((x,i)=>{const b=document.createElement("button");b.className="choice";b.textContent=(i+1)+"　"+x.text;b.onclick=()=>answerQuestion(x.index,b);box.appendChild(b)})}
+function renderQuestion(){
+ if(!Array.isArray(pool)||pool.length===0){alert("出題できる問題がありません。");show("home");return}
+ if(qIndex>=pool.length){finishQuiz();return}
+ current=pool[qIndex];answered=false;
+ document.getElementById("rankBadge").textContent=rank==="ランダム"?"ランダム／"+current.level:current.level;
+ document.getElementById("quizProgress").textContent=(qIndex+1)+" / "+pool.length;
+ document.getElementById("questionText").textContent=current.q;
+ document.getElementById("answerResult").classList.add("hidden");
+ const next=document.getElementById("nextButton");
+ next.classList.add("hidden");
+ next.disabled=false;
+ next.textContent=(qIndex===pool.length-1)?"結果を見る":"次の問題";
+ const box=document.getElementById("choiceList");box.innerHTML="";
+ shuffle(current.choices.map((text,index)=>({text,index}))).forEach((x,i)=>{const b=document.createElement("button");b.className="choice";b.textContent=(i+1)+"　"+x.text;b.onclick=()=>answerQuestion(x.index,b);box.appendChild(b)})
+}
 function answerQuestion(i,b){if(answered)return;answered=true;const ok=i===current.answer,buttons=[...document.querySelectorAll("#choiceList .choice")];buttons.forEach(x=>x.disabled=true);b.classList.add(ok?"correct":"wrong");if(ok)qScore++;else buttons.find(x=>x.textContent.includes(current.choices[current.answer]))?.classList.add("correct");const r=document.getElementById("answerResult");r.innerHTML="<b>"+(ok?"⭕ 正解":"❌ 不正解")+"</b><br>"+(current.ex||"正解を確認しましょう。");r.classList.remove("hidden");document.getElementById("nextButton").classList.remove("hidden");const s=stats();s.answered++;if(ok){s.correct++;awardExp(20)}saveStats(s);addMission(category==="price"?"price":"quiz",1);
 if(!ok){let w=[];try{w=JSON.parse(localStorage.getItem(WRONG_STORE)||"[]")}catch{};if(!w.some(x=>x.q===current.q)){w.push(current);localStorage.setItem(WRONG_STORE,JSON.stringify(w.slice(-100)))}}}
-function nextQuestion(){if(!answered)return;qIndex++;renderQuestion()}
-function finishQuiz(){const s=stats();s.sessions.unshift({date:new Date().toLocaleString("ja-JP"),category:category==="price"?"工事料金":category==="review"?"間違い復習":"練習問題",rank,score:qScore,total:pool.length});saveStats(s);document.getElementById("resultScore").textContent=qScore+" / "+pool.length;document.getElementById("resultMessage").textContent=qScore>=8?"合格です！":"復習してもう一度挑戦しましょう。";show("result")}
+function nextQuestion(){
+ if(!answered)return;
+ const next=document.getElementById("nextButton");
+ next.disabled=true;
+ if(qIndex>=pool.length-1){finishQuiz();return}
+ qIndex++;
+ renderQuestion();
+}
+function finishQuiz(){
+ const total=Array.isArray(pool)?pool.length:0;
+ const s=stats();
+ s.sessions.unshift({date:new Date().toLocaleString("ja-JP"),category:category==="price"?"工事料金":category==="review"?"間違い復習":"練習問題",rank,score:safeNonNegativeNumber(qScore),total});
+ saveStats(s);
+ document.getElementById("resultScore").textContent=safeNonNegativeNumber(qScore)+" / "+total;
+ document.getElementById("resultMessage").textContent=safeNonNegativeNumber(qScore)>=Math.ceil(total*0.8)?"合格です！":"復習してもう一度挑戦しましょう。";
+ show("result");
+}
 
 function startReview(){
  let wrong=[];
@@ -1479,7 +1536,7 @@ function transferKeys(){
  const keys=[];
  for(let i=0;i<localStorage.length;i++){
   const k=localStorage.key(i)||"";
-  if((/^aircon/i.test(k)||k==="constructionChecklistV42")&&!/^aircon_v2130_mission_/i.test(k))keys.push(k);
+  if(/^aircon/i.test(k)||k==="constructionChecklistV42")keys.push(k);
  }
  return [...new Set(keys)].sort();
 }
@@ -1515,25 +1572,12 @@ function importLearningData(){
   if(!data||data.format!=="aircon-master-transfer"||!data.items||typeof data.items!=="object")throw new Error("invalid format");
   let count=0;
   Object.entries(data.items).forEach(([k,v])=>{
-   if((/^aircon/i.test(k)||k==="constructionChecklistV42")&&!/^aircon_v2130_mission_/i.test(k)&&typeof v==="string"){localStorage.setItem(k,v);count++}
+   if((/^aircon/i.test(k)||k==="constructionChecklistV42")&&typeof v==="string"){localStorage.setItem(k,v);count++}
   });
   document.getElementById("transferStatus").textContent=count+"件の学習記録を復元しました。画面を更新します。";
   setTimeout(()=>location.reload(),500);
  }catch(e){alert("引き継ぎコードを読み取れませんでした。コード全体をコピーして、もう一度お試しください。");console.error(e)}
 }
-
-// 引き継ぎコードに含まれていた旧ミッション進捗を一度だけ削除する
-(function resetImportedMissionProgressOnce(){
- const flag="aircon_mission_import_fix_v381";
- if(localStorage.getItem(flag))return;
- const remove=[];
- for(let i=0;i<localStorage.length;i++){
-  const k=localStorage.key(i)||"";
-  if(/^aircon_v2130_mission_/i.test(k))remove.push(k);
- }
- remove.forEach(k=>localStorage.removeItem(k));
- localStorage.setItem(flag,"1");
-})();
 
 function openSettings(){document.getElementById("nameInput").value=localStorage.getItem(NAME)||"";show("settings")}
 function saveName(){const v=document.getElementById("nameInput").value.trim();if(!v)return alert("あなたのお名前を入力してください。");localStorage.setItem(NAME,v);alert(v+"さんで保存しました。");updateHome()}
